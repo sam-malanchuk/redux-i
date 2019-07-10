@@ -67,7 +67,7 @@ const mapStateToProps = (state) => {
 
 // const mapDispatchToProps = (dispatch) => {
 // 	return {
-// 		deposit: (amount, account) => dispatch(makeDeposit(amount, account))
+// 		makeDeposit: (amount, account) => dispatch(makeDeposit(amount, account))
 // 	}
 // }
 // ---- same as this:
