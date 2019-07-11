@@ -59,24 +59,6 @@ class Deposit extends React.Component {
 	}
 }
 
-<<<<<<< HEAD
-const mapStateToProps = state => {
-	return {
-		total: state.checking + state.savings
-	}
-}
-
-// const mapDispatchToProps = dispatch => {
-	// return {
-	// 	deposit: (amount, account) => dispatch(makeDeposit(amount, account))
-	// }
-	// Shorthand:
-const mapDispatchToProps = {
-	deposit: makeDeposit
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Deposit)
-=======
 const mapStateToProps = (state) => {
 	return {
 		total: state.checking + state.savings,
@@ -97,4 +79,3 @@ export default connect(
 	mapStateToProps,
 	mapDispatchToProps,
 )(Deposit)
->>>>>>> 600cb810cc5b907c3da32b4bb56820af1474e13a
