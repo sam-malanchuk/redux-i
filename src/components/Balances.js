@@ -1,5 +1,9 @@
 import React from 'react'
+<<<<<<< HEAD
 import { connect } from 'react-redux';
+=======
+import { connect } from 'react-redux'
+>>>>>>> 600cb810cc5b907c3da32b4bb56820af1474e13a
 
 function Balances(props) {
 	const { total, checking, savings } = props

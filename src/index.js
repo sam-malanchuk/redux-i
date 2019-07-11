@@ -5,7 +5,11 @@ import { Provider } from 'react-redux'
 import App from './components/App'
 import reducer from './reducer'
 
+<<<<<<< HEAD
 const store = createStore(reducer);
+=======
+const store = createStore(reducer)
+>>>>>>> 600cb810cc5b907c3da32b4bb56820af1474e13a
 
 ReactDOM.render(
 	<Provider store={store}>
