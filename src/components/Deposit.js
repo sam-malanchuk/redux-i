@@ -8,6 +8,7 @@ class Deposit extends React.Component {
 		this.state = {
 			amount: '',
 			account: 'checking',
+			description: '',
 		}
 	}
 
@@ -22,17 +23,18 @@ class Deposit extends React.Component {
 	depositMoney = (evt) => {
 		evt.preventDefault()
 
-		const { amount, account } = this.state
-		this.props.deposit(amount, account)
+		const { amount, account, description } = this.state
+		this.props.makeDeposit(amount, account, description)
 
 		this.setState({
 			amount: '',
+			description: '',
 		})
 	}
 
 	render() {
 		const { total } = this.props
-		const { amount, account } = this.state
+		const { amount, account, description } = this.state
 
 		return (
 			<section>
@@ -50,6 +52,10 @@ class Deposit extends React.Component {
 						<option value="savings">Savings</option>
 					</select>
 					
+					<br />
+
+					<input type="text" name="description" placeholder="Description" value={description} onChange={this.handleChange} required />
+
 					<br />
 
 					<button type="submit">Deposit</button>

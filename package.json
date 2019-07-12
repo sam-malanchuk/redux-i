@@ -4,15 +4,9 @@
 		"@babel/runtime": "^7.5.4",
 		"react": "^16.8.6",
 		"react-dom": "^16.8.6",
-<<<<<<< HEAD
 		"react-redux": "^7.1.0",
 		"react-scripts": "3.0.1",
 		"redux": "^4.0.3"
-=======
-		"react-redux": "7.1.0",
-		"react-scripts": "3.0.1",
-		"redux": "4.0.3"
->>>>>>> 600cb810cc5b907c3da32b4bb56820af1474e13a
 	},
 	"scripts": {
 		"start": "react-scripts start",
