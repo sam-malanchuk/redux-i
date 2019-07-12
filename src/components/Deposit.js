@@ -8,6 +8,7 @@ class Deposit extends React.Component {
 		this.state = {
 			amount: '',
 			account: 'checking',
+			description: '',
 		}
 	}
 
@@ -22,17 +23,18 @@ class Deposit extends React.Component {
 	depositMoney = (evt) => {
 		evt.preventDefault()
 
-		const { amount, account } = this.state
-		this.props.deposit(amount, account)
+		const { amount, account, description } = this.state
+		this.props.makeDeposit(amount, account, description)
 
 		this.setState({
 			amount: '',
+			description: '',
 		})
 	}
 
 	render() {
 		const { total } = this.props
-		const { amount, account } = this.state
+		const { amount, account, description } = this.state
 
 		return (
 			<section>
@@ -52,6 +54,10 @@ class Deposit extends React.Component {
 					
 					<br />
 
+					<input type="text" name="description" placeholder="Description" value={description} onChange={this.handleChange} required />
+
+					<br />
+
 					<button type="submit">Deposit</button>
 				</form>
 			</section>
@@ -59,19 +65,23 @@ class Deposit extends React.Component {
 	}
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
 	return {
-		total: state.checking + state.savings
+		total: state.checking + state.savings,
 	}
 }
 
-// const mapDispatchToProps = dispatch => {
-	// return {
-	// 	deposit: (amount, account) => dispatch(makeDeposit(amount, account))
-	// }
-	// Shorthand:
+// const mapDispatchToProps = (dispatch) => {
+// 	return {
+// 		makeDeposit: (amount, account) => dispatch(makeDeposit(amount, account))
+// 	}
+// }
+// ---- same as this:
 const mapDispatchToProps = {
-	deposit: makeDeposit
+	makeDeposit: makeDeposit,
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Deposit)
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps,
+)(Deposit)

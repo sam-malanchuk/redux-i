@@ -1,20 +1,24 @@
-import { MAKE_DEPOSIT } from "./actions";
+import { MAKE_DEPOSIT } from './actions'
 
 const initialState = {
-	checking: 20,
-	savings: 50,
+	checking: 200,
+	savings: 200,
+	accountActivity: [],
 }
 
 export default function(state = initialState, action) {
-    switch (action.type) {
-        case MAKE_DEPOSIT:
-            const { amount, account } = action.payload
-            const newAmount = parseInt(amount) + state[account]
-            return {
-                ...state,
-                [account]: newAmount,
-            }
-        default:
-            return state
-    }
+	switch (action.type) {
+		case MAKE_DEPOSIT:
+			const { amount, account, description } = action.payload
+			const newAmount = parseInt(amount) + state[account]
+			// const newActivity = state.accountActivity.concat([description])
+
+			return {
+				...state,
+				[account]: newAmount,
+				accountActivity: [...state.accountActivity, (`$${amount} for ${description}`)],
+			}
+		default:
+			return state
+	}
 }
